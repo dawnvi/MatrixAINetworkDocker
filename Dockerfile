@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y procps wget net-tools cron && rm -rf /v
 ADD . /matrix
 
 # grab files from official matrix repo and set execute permissions
-RUN cd /matrix && wget https://www.qpm.xin/man/623/GMAN_CLIENT-master/MAINNET/0620/linux/gman https://www.qpm.xin/man/623/GMAN_CLIENT-master/MAINNET/0620/linux/MANGenesis.json https://www.qpm.xin/man/623/GMAN_CLIENT-master/MAINNET/0620/linux/chaindata/man.json && chmod a+x gman
+RUN cd /matrix && wget http://manfile.qpm.xin/gman http://manfile.qpm.xin/MANGenesis.json http://manfile.qpm.xin/man.json && chmod a+x gman
 
 # move MatrixLog cleanup scrip to cron.daily - script deletes logs older than 24 hours
 RUN mv /matrix/logCleanup /etc/cron.daily/
